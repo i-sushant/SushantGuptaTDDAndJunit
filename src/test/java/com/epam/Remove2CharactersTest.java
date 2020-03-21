@@ -4,32 +4,39 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.junit.jupiter.api.BeforeEach;
+
 class Remove2CharactersTest {
 
+    Remove2Characters r2c;
+    @BeforeEach
+    void setup(){
+        r2c = new Remove2Characters();
+    }
     @Test
     void removefromNChars() {
-        assertEquals(Remove2Characters.remove("ABCD"), "BCD");
-        assertEquals(Remove2Characters.remove("AACD"), "CD");
-        assertEquals(Remove2Characters.remove("BACD"), "BCD");
-        assertEquals(Remove2Characters.remove("BBAA"), "BBAA");
-        assertEquals(Remove2Characters.remove("AABAA"), "BAA");
-        assertEquals(Remove2Characters.remove("A1DB"), "1DB");
+        assertEquals("BCD", r2c.remove("ABCD"));
+        assertEquals("CD", r2c.remove("AACD"));
+        assertEquals("BCD", r2c.remove("BACD"));
+        assertEquals("BBAA", r2c.remove("BBAA"));
+        assertEquals("BAA", r2c.remove("AABAA"));
+        assertEquals("1DB", r2c.remove("A1DB"));
     }
     @Test
     void removeFromNullString(){
-        assertEquals(Remove2Characters.remove(""), "");
+        assertEquals("", r2c.remove(""));
     }
 
     @Test
     void removeFrom1Char(){
-        assertEquals(Remove2Characters.remove("A"),"");
-        assertEquals(Remove2Characters.remove("B"),"B");
+        assertEquals("", r2c.remove("A"));
+        assertEquals("B", r2c.remove("B"));
     }
     @Test
     void removeFrom2Chars(){
-        assertEquals(Remove2Characters.remove("AB"), "B");
-        assertEquals(Remove2Characters.remove("AA"), "");
-        assertEquals(Remove2Characters.remove("B1"), "B1");
+        assertEquals("B", r2c.remove("AB"));
+        assertEquals("", r2c.remove("AA"));
+        assertEquals("B1", r2c.remove("B1"));
     }
 
 }

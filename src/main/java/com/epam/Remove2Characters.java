@@ -1,7 +1,7 @@
 package com.epam;
 
 public class Remove2Characters {
-    public static String remove(String string){
+    public String remove(String string){
         String result = string.toUpperCase();
 
         if(string.length() <= 2) {
